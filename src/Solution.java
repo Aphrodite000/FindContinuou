@@ -26,7 +26,29 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        ArrayList<ArrayList<Integer>> list=FindContinuousSequence(3);
+        //ArrayList<ArrayList<Integer>> list=FindContinuousSequence(3);
+        int[] array={1,2,3,4,5,6,7,8,9};
+        ArrayList<Integer> list=FindNumbersWithSum(array,10);
         System.out.println(list);
+    }
+    public  static ArrayList<Integer> FindNumbersWithSum(int [] array,int sum) {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        if (array == null || array.length < 2) {
+            return list;
+        }
+        int i=0,j=array.length-1;
+        while(i<j){
+            if(array[i]+array[j]==sum){
+                list.add(array[i]);
+                list.add(array[j]);
+                return list;
+            }else if(array[i]+array[j]>sum){
+                j--;
+            }else{
+                i++;
+            }
+
+        }
+        return list;
     }
 }
